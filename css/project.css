@@ -14,11 +14,11 @@ body img {
     background: #fff;
 }
 
-.banner {
-    height: 1.5rem;
-    width: auto;
-    background: #fff;
-}
+// .banner {
+//     height: 1.5rem;
+//     width: auto;
+//     background: #fff;
+// }
 
 .con img {
     width: 6.1rem;
@@ -27,10 +27,10 @@ body img {
     margin: 0.6rem 0 0 0.28rem;
 }
 
-.banner img {
-    max-width: 100%;
-    margin: 0;
-}
+// .banner img {
+//     max-width: 100%;
+//     margin: 0;
+// }
 
 .con h2 {
     color: #0b3966;
@@ -206,3 +206,44 @@ body img {
         padding: 52px 0.7rem 60px 0.42rem;
     }
 }
+ .top {
+        position: fixed;
+        top: 0;
+        background: #202c3a;
+        width: 100%;
+        height: 1.2rem;
+    }
+    .top div {
+      
+        float: left;
+
+    }
+    .top>div:nth-child(1){
+        background: url("../images/img_logo@2x.png") no-repeat 0.62rem center; width: 5.5rem;
+        background-size: 0.7rem,0.7rem; height: 1.2rem;
+    }
+     .top>div:nth-child(2){
+       width: 2rem; height: 1.2rem;
+       
+    }
+    .top>div:nth-child(2) button{
+
+    }
+    .closebanner{
+        width: 0.2rem;height: 0.2rem;margin: 0.5rem 0.2rem 0 0.22rem;
+         background: url("../images/icon_close@2x.png") no-repeat center center; 
+        background-size: 0.2rem,0.2rem;
+    }
+    .text{padding:0.22rem 0.2rem 0 0.9rem;color: #fff;}
+
+    #applink {
+        width: 1.48rem;
+        height: 0.74rem;
+        border-radius: 0.08rem;
+        background: #0b3966;
+        color: #fff;
+        margin: 0.23rem auto;
+        display: block;
+        -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .3);
+        box-shadow: 0 3px 9px rgba(0, 0, 0, .3);
+    }
