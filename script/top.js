@@ -12,9 +12,6 @@ $(function() {
       marginTop: '0',
     });
   }
-
-
-
   $("#applink").on('click', function(event) {
     event.preventDefault();
     applink();
@@ -26,6 +23,7 @@ $(function() {
       marginTop: '0',
     });
   });
+
 })
 
 function applink() {
