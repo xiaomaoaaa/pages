@@ -47,7 +47,7 @@ body img {
 }
 
 .unit {
-    padding: 15px 0.7rem 23px 0.42rem;
+    padding: 15px 0.7rem 23px 0.46rem;
     background: #fff;
     border-bottom: 1px solid #d8d8d8
 }
@@ -79,13 +79,7 @@ body img {
     padding-bottom: 0;
 }
 
-.summary {
-    padding: 15px 0.7rem 23px;
-}
 
-.summary p {
-    padding: 0;
-}
 
 .process {
     padding: 22px 0.7rem 30px 0.42rem;
@@ -100,34 +94,6 @@ body img {
 }
 
 
-/*.unit h4 {
-    color: #333;
-    height: 0.42rem;
-    padding-left: 0;
-    font-weight: 700;
-    line-height: 0.42rem;
-}*/
-
-
-/*.unit h4::before{
-    content:"1";
-    width:0.42rem; height:0.42rem;
-    display:inline-block;
-    text-align:center;
-    border-radius:50%;
-    background:#848c9a;
-    margin-right: 0.24rem;
-    color:#fff;
-    font-weight:normal;
-}
-.unit h4::after{
-    content:"";
-    display:block;
-    border-left: #848C99 1px solid;
-    height: 0.6rem;
-    width:auto;
-    margin-left: 0.21rem;
-}*/
 
 .unit h4:nth-of-type(1) {
     background: url("../images/1.png") no-repeat left center;
@@ -194,13 +160,10 @@ body img {
 .con p.pt0{padding-top: 0}
 @media screen and (min-width:750px) {
     .unit {
-        padding: 38px 0.7rem 46px 0.42rem;
+        padding: 38px 0.7rem 46px 0.46rem;
     }
     .unit h3 {
         background: url("../images/icon_round.png") no-repeat left 16px;
-    }
-    .summary {
-        padding: 38px 0.7rem 46px;
     }
     .process {
         padding: 52px 0.7rem 60px 0.42rem;
@@ -248,3 +211,16 @@ body img {
         box-shadow: 0 3px 9px rgba(0, 0, 0, .3);
     }
     .gaishu p,.summary p{line-height: 0.5rem;}
+   .con .summary img{
+        margin: 0.46rem 0 0.46rem 0.28rem;
+   }
+    .con .summary img.pb17{
+        margin: 0.46rem 0 0.17rem 0.28rem;
+   }
+   .con img.ptb60{
+         margin: 0.6rem 0 0.6rem 0.28rem;
+   }
+   .con img.ptb7{
+         margin: 0.6rem 0 7px 0.28rem;
+   }
+   
