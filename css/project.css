@@ -1,5 +1,7 @@
 body {
     background: #fff;
+    font-family: PingFangSC-Regular,PingFangSC-Ultralight,PingFangSC-Light,PingFangSC-Light,
+  ,PingFangSC-Thin,PingFangSC-Medium,PingFangSC-Semibold,sans-serif;
 }
 
 body img {
@@ -48,8 +50,8 @@ body img {
     padding-left: 0.28rem;
     font-weight: bold;
     word-break: break-word;
-    line-height: 0.4rem; text-align: justify;
-   
+    line-height: 0.4rem;
+    text-align: justify;
 }
 
 .unit h3+h3 {
@@ -68,8 +70,6 @@ body img {
     padding-bottom: 0;
 }
 
-
-
 .process {
     padding: 0.52rem 0.7rem 0.6rem 0.42rem;
 }
@@ -81,8 +81,6 @@ body img {
     font-weight: 700;
     line-height: 0.42rem;
 }
-
-
 
 .unit h4:nth-of-type(1) {
     background: url("../images/1.png") no-repeat left center;
@@ -127,10 +125,8 @@ body img {
 .line {
     border-left: #848C99 1px solid;
     height: 0.5rem;
-    margin:0.04rem 0.21rem;
+    margin: 0.04rem 0.21rem;
 }
-
-
 
 .con p.pt46 {
     padding-top: 0.36rem;
@@ -140,60 +136,106 @@ body img {
     padding-bottom: 0.36rem;
 }
 
+.top {
+    position: fixed;
+    top: 0;
+    background: #202c3a;
+    width: 100%;
+    height: 1.2rem;
+}
 
- .top {
-        position: fixed;
-        top: 0;
-        background: #202c3a;
-        width: 100%;
-        height: 1.2rem;
-    }
-    .top div {
-      
-        float: left;
+.top div {
+    float: left;
+}
 
-    }
-    .top>div:nth-child(1){
-        background: url("../images/img_logo@2x.png") no-repeat 0.62rem center; width: 5.5rem;
-        background-size: 0.7rem,0.7rem; height: 1.2rem;
-    }
-     .top>div:nth-child(2){
-       width: 2rem; height: 1.2rem;
-       
-    }
-    .top>div:nth-child(2) button{
+.top>div:nth-child(1) {
+    background: url("../images/img_logo@2x.png") no-repeat 0.62rem center;
+    width: 5.5rem;
+    background-size: 0.7rem, 0.7rem;
+    height: 1.2rem;
+}
 
-    }
-    .closebanner{
-        width: 0.2rem;height: 0.2rem;margin: 0.5rem 0.2rem 0 0.22rem;
-         background: url("../images/icon_close@2x.png") no-repeat center center; 
-        background-size: 0.2rem,0.2rem;
-    }
-    .text{padding:0.22rem 0.2rem 0 0.9rem;color: #fff;}
+.top>div:nth-child(2) {
+    width: 2rem;
+    height: 1.2rem;
+}
 
-    #applink {
-        width: 1.48rem;
-        height: 0.74rem;
-        border-radius: 0.08rem;
-        background: #0b3966;
-        color: #fff;
-        margin: 0.23rem auto;
-        display: block;
-        -webkit-box-shadow: 0 0.03rem 0.09rem rgba(0, 0, 0, .3);
-        box-shadow: 0 0.03rem 0.09rem rgba(0, 0, 0, .3);
-    }
-.gaishu p,.summary p{line-height: 0.5rem;}
-.con img.mt0{margin-top: 0}
-.con img.mb0{margin-bottom: 0}
-.con img.mt46{margin-top:0.46rem}
-.con img.mb46{margin-bottom: 0.46rem}
-.con img.mt60{margin-top:0.6rem}
-.con img.mb60{margin-bottom: 0.6rem}
-.con p.pt46{padding-bottom: 0}
-.con p.pt0{padding-top: 0}
-.con p.pb0{padding-bottom: 0}
-.con img.mb7{margin-bottom:0.14rem}
-.con img.mt7{margin-top:0.14rem}
+.top>div:nth-child(2) button {}
+
+.closebanner {
+    width: 0.2rem;
+    height: 0.2rem;
+    margin: 0.5rem 0.2rem 0 0.22rem;
+    background: url("../images/icon_close@2x.png") no-repeat center center;
+    background-size: 0.2rem, 0.2rem;
+}
+
+.text {
+    padding: 0.22rem 0.2rem 0 0.9rem;
+    color: #fff;
+}
+
+#applink {
+    width: 1.48rem;
+    height: 0.74rem;
+    border-radius: 0.08rem;
+    background: #0b3966;
+    color: #fff;
+    margin: 0.23rem auto;
+    display: block;
+    -webkit-box-shadow: 0 0.03rem 0.09rem rgba(0, 0, 0, .3);
+    box-shadow: 0 0.03rem 0.09rem rgba(0, 0, 0, .3);
+}
+
+.gaishu p,
+.summary p {
+    line-height: 0.5rem;
+}
+
+.con img.mt0 {
+    margin-top: 0
+}
+
+.con img.mb0 {
+    margin-bottom: 0
+}
+
+.con img.mt46 {
+    margin-top: 0.46rem
+}
+
+.con img.mb46 {
+    margin-bottom: 0.46rem
+}
+
+.con img.mt60 {
+    margin-top: 0.6rem
+}
+
+.con img.mb60 {
+    margin-bottom: 0.6rem
+}
+
+.con p.pt46 {
+    padding-bottom: 0
+}
+
+.con p.pt0 {
+    padding-top: 0
+}
+
+.con p.pb0 {
+    padding-bottom: 0
+}
+
+.con img.mb7 {
+    margin-bottom: 0.14rem
+}
+
+.con img.mt7 {
+    margin-top: 0.14rem
+}
+
 .unit.ptb60 {
     padding-bottom: 0.6rem;
 }
