@@ -27,27 +27,37 @@ $(function() {
     event.preventDefault();
     var src = $(this).attr("src");
     $(".bgClass").show("400");
-    $(".maximg").attr({
+    $(".maximg").show().find("img").attr({
       src: src
-    }).show()
-    var imgH = $(".maximg").height();
-    $(".maximg").css({
-      marginTop: -imgH / 2,
-
     });
-    $("meta[name='viewport']").attr({
-      content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5'
-    });
-
   });
-  $(".maximg").on('click', function(event) {
+  $(".bgClass").on('click', function(event) {
     $(".maximg").hide("400");
-    $(".bgClass").hide("400");
-    $("meta[name='viewport']").attr({
-      content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'
+    $(this).hide("400");
+  });
+  var $targetObj = $('#maximg');
+  //初始化设置
+  cat.touchjs.init($targetObj, function(left, top, scale, rotate) {
+    $targetObj.css({
+      left: left,
+      top: top,
+      'transform': 'scale(' + scale + ') rotate(' + rotate + 'deg)',
+      '-webkit-transform': 'scale(' + scale + ') rotate(' + rotate + 'deg)'
     });
   });
-
+  //初始化拖动手势（不需要就注释掉）
+  cat.touchjs.drag($targetObj, function(left, top) {
+    $('#left').text(left);
+    $('#top').text(top);
+  });
+  //初始化缩放手势（不需要就注释掉）
+  cat.touchjs.scale($targetObj, function(scale) {
+    $('#scale').text(scale);
+  });
+  //初始化旋转手势（不需要就注释掉）
+  cat.touchjs.rotate($targetObj, function(rotate) {
+    $('#rotate').text(rotate);
+  });
 })
 
 function applink() {
