@@ -23,6 +23,30 @@ $(function() {
       marginTop: '0',
     });
   });
+  $("img").on('click', function(event) {
+    event.preventDefault();
+    var src = $(this).attr("src");
+    $(".bgClass").show("400");
+    $(".maximg").attr({
+      src: src
+    }).show()
+    var imgH = $(".maximg").height();
+    $(".maximg").css({
+      marginTop: -imgH / 2,
+
+    });
+    $("meta[name='viewport']").attr({
+      content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5'
+    });
+
+  });
+  $(".maximg").on('click', function(event) {
+    $(".maximg").hide("400");
+    $(".bgClass").hide("400");
+    $("meta[name='viewport']").attr({
+      content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'
+    });
+  });
 
 })
 
