@@ -1,18 +1,18 @@
 ﻿/*
-* author: www.somethingwhat.com
-*/
+ * author: www.somethingwhat.com
+ */
 var cat = window.cat || {};
 cat.touchjs = {
     left: 0,
     top: 0,
-    scaleVal: 1,    //缩放
-    rotateVal: 0,   //旋转
-    curStatus: 0,   //记录当前手势的状态, 0:拖动, 1:缩放, 2:旋转
+    scaleVal: 1, //缩放
+    rotateVal: 0, //旋转
+    curStatus: 0, //记录当前手势的状态, 0:拖动, 1:缩放, 2:旋转
     //初始化
-    init: function ($targetObj, callback) {
-        touch.on($targetObj, 'touchstart', function (ev) {
+    init: function($targetObj, callback) {
+        touch.on($targetObj, 'touchstart', function(ev) {
             cat.touchjs.curStatus = 0;
-            ev.preventDefault();//阻止默认事件
+            ev.preventDefault(); //阻止默认事件
         });
         if (!window.localStorage.cat_touchjs_data)
             callback(0, 0, 1, 0);
@@ -23,21 +23,21 @@ cat.touchjs = {
         }
     },
     //拖动
-    drag: function ($targetObj, callback) {
-        touch.on($targetObj, 'drag', function (ev) {
+    drag: function($targetObj, callback) {
+        touch.on($targetObj, 'drag', function(ev) {
             $targetObj.css("left", cat.touchjs.left + ev.x).css("top", cat.touchjs.top + ev.y);
         });
-        touch.on($targetObj, 'dragend', function (ev) {
+        touch.on($targetObj, 'dragend', function(ev) {
             cat.touchjs.left = cat.touchjs.left + ev.x;
             cat.touchjs.top = cat.touchjs.top + ev.y;
             callback(cat.touchjs.left, cat.touchjs.top);
         });
     },
     //缩放
-    scale: function ($targetObj, callback) {
+    scale: function($targetObj, callback) {
         var initialScale = cat.touchjs.scaleVal || 1;
         var currentScale;
-        touch.on($targetObj, 'pinch', function (ev) {
+        touch.on($targetObj, 'pinch', function(ev) {
             if (cat.touchjs.curStatus == 2) {
                 return;
             }
@@ -50,7 +50,7 @@ cat.touchjs = {
             callback(cat.touchjs.scaleVal);
         });
 
-        touch.on($targetObj, 'pinchend', function (ev) {
+        touch.on($targetObj, 'pinchend', function(ev) {
             if (cat.touchjs.curStatus == 2) {
                 return;
             }
@@ -60,7 +60,7 @@ cat.touchjs = {
         });
     },
     //旋转
-    rotate: function ($targetObj, callback) {
+    rotate: function($targetObj, callback) {
         var angle = cat.touchjs.rotateVal || 0;
         // touch.on($targetObj, 'rotate', function (ev) {
         //     if (cat.touchjs.curStatus == 1) {
