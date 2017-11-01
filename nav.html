@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>导航</title>
@@ -7,15 +8,25 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <script type="text/javascript" src="script/reponse.js"></script>
-   
-    <style>a{display: block; width: auto;height: 30px;line-height: 30px;margin-right: 40px;float: left;font-size: 14px;}</style>
+    <style>
+    a {
+        display: block;
+        width: auto;
+        height: 30px;
+        line-height: 30px;
+        margin-right: 40px;
+        float: left;
+        font-size: 14px;
+    }
+    </style>
 </head>
+
 <body>
     <a href="project-America.html" target="_blank">美国L1签证</a><a href="project-Antigua.html" target="_blank">安巴护照项目</a>
     <a href="project-Australia132.html" target="_blank">澳洲132</a><a href="project-Australia188A.html" target="_blank">澳洲188A</a>
     <a href="project-Australia188B.html" target="_blank">澳洲188B</a><a href="project-Australia188C(1500).html" target="_blank">澳洲188C1500</a>
-    <a href="project-Australia188C(500).html" target="_blank">美国L1签证</a><a href="project-Antigua.html" target="_blank">澳洲188C500</a>
-    <a href="project-Britain.html" target="_blank">英国</a><a href="project-Canada.html" target="_blank">安巴护照项目</a>
+    <a href="project-Australia188C(500).html" target="_blank">澳洲188C500</a>
+    <a href="project-Britain.html" target="_blank">英国</a>
     <a href="project-Canada.html" target="_blank">加拿大魁北克</a><a href="project-Canada1.html" target="_blank">加拿大曼尼托巴</a>
     <a href="project-Canada2.html" target="_blank">加拿大新不布伦瑞克</a><a href="project-Canada3.html" target="_blank">爱德华王子岛</a>
     <a href="project-Cyprus.html" target="_blank">塞浦路斯投资居留</a><a href="project-Cyprus2.html" target="_blank">塞浦路斯投资入籍</a>
@@ -24,11 +35,105 @@
     <a href="project-EB5-3.html" target="_blank">美国EB-5_MT银行总部</a><a href="project-Greece.html" target="_blank">希腊</a>
     <a href="project-Grenada.html" target="_blank">格林纳达</a><a href="project-GuineaBissau.html" target="_blank">几内亚比绍</a>
     <a href="project-HongKong.html" target="_blank">香港</a><a href="project-Malaysia.html" target="_blank">马来西亚</a>
-    <a href="project-Malta.html" target="_blank">马耳他投资居留</a><a href="project-Malta.html2" target="_blank">马耳他投资入籍</a>
+    <a href="project-Malta.html" target="_blank">马耳他投资居留</a><a href="project-Malta2.html" target="_blank">马耳他投资入籍</a>
     <a href="project-NewZealand(1000).html" target="_blank">新西兰1000</a><a href="project-NewZealand(300).html" target="_blank">新西兰300</a>
     <a href="project-NewZealand.html" target="_blank">新西兰创业投资</a><a href="project-Portugal.html" target="_blank">葡萄牙</a>
-    <a href="project-Singapore.html" target="_blank">新加坡</a><a href="project-Spain.html" target="_blank">班牙</a>
+    <a href="project-Singapore.html" target="_blank">新加坡</a><a href="project-Spain.html" target="_blank">西班牙</a>
     <a href="project-StKitts.html" target="_blank">圣基茨</a><a href="project-Vanuatu.html" target="_blank">瓦努阿图</a>
+    <a onclick="applink()" style="height: 50px; width: 100px;clear: both;">打开APP</a>
+    <script type="text/javascript">
+    var browser = {
+        versions: function() {
+            var u = navigator.userAgent,
+                 app = navigator.appVersion;
+            return {
+                trident: u.indexOf('Trident') > -1,
+                /*IE内核*/
+                presto: u.indexOf('Presto') > -1,
+                /*opera内核*/
+                              
+                webKit: u.indexOf('AppleWebKit') > -1,
+                /*苹果、谷歌内核*/
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+                /*火狐内核*/
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+                /*是否为移动终端*/
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                /*ios终端*/
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                /*android终端或者uc浏览器*/
+                 iPhone: u.indexOf('iPhone') > -1,
+                /*是否为iPhone或者QQHD浏览器*/
+                 iPad: u.indexOf('iPad') > -1,
+                /*是否iPad*/
+                 webApp: u.indexOf('Safari') == -1,
+                /*是否web应该程序，没有头部与底部*/
+                 
+                souyue: u.indexOf('souyue') > -1,
+                   superapp: u.indexOf('superapp') > -1,
+                    weixin: u.toLowerCase().indexOf('micromessenger') > -1,
+                    Safari: u.indexOf('Safari') > -1
+            };
+        }(),
+        language: (navigator.browserLanguage || navigator.language).toLowerCase()
+
+    };
+
+    function applink() {
+        if (browser.versions.mobile) { //判断是否是移动设备打开。browser代码在下面
+
+            var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
+            var isIos=browser.versions.ios,isAndroid=browser.versions.android;
+            var isIosQQ = (isIos && / QQ/i.test(navigator.userAgent));
+            var isAndroidQQ = (isAndroid && /MQQBrowser/i.test(navigator.userAgent) && /QQ/i.test((navigator.userAgent).split('MQQBrowser')));
+          
+            if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo" || isIosQQ||isAndroidQQ) {
+                document.write("<img src='images/download_default.png' alt='APP下载' width='100%'/>");
+                return true;
+            } else {
+                window.location.href = 'xtym://';
+                var clickedAt = +new Date;
+                setTimeout(function() {
+                    !window.document.webkitHidden && setTimeout(function() {
+                        if (+new Date - clickedAt < 2000) {
+                            window.location.href = '$!appDownload';
+                        }
+                    }, 500);
+                }, 500)
+            }
+
+        } else {
+            alert("请在移动设备上打开")
+
+        }
+        // if (browser.versions.ios) {
+        //     // window.location.href = "xtym://myapp/wakeapp?param=1";
+        //     // window.location.href = 'xtym://';
+        //     window.location.href = 'zjmobile://platformapi/startapp';
+        //     var clickedAt = +new Date;
+        //     setTimeout(function() {
+        //         !window.document.webkitHidden && setTimeout(function() {
+        //             if (+new Date - clickedAt < 2000) {
+        //                 window.location.href = '$!appDownload';
+        //             }
+        //         }, 500);
+        //     }, 500)
+        // } else if (browser.versions.android) {
+        //     window.location.href = "xtym://myapp/wakeapp?param=1";
+        //     var clickedAt = +new Date;
+        //     setTimeout(function() {
+        //         !window.document.webkitHidden && setTimeout(function() {
+        //             if (+new Date - clickedAt < 2000) {
+        //                 window.location.href = '$!appDownload';
+        //             }
+        //         }, 500);
+        //     }, 500)
+        // }
+
+
+    }
+
+    </script>
 </body>
 
 </html>
