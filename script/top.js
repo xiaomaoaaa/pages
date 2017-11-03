@@ -74,31 +74,60 @@ $(function() {
 
 // }
 function applink() {
+  var setypeId = getParameter("id");
+  var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
+  var isIos = browser.versions.ios,
+    isAndroid = browser.versions.android;
+  var isIosQQ = (isIos && / QQ/i.test(navigator.userAgent));
+  var isAndroidQQ = (isAndroid && /MQQBrowser/i.test(navigator.userAgent) && /QQ/i.test((navigator.userAgent).split('MQQBrowser')));
+
   if (browser.versions.ios) {
-    window.location.href = "xtym://";
-    // window.location.href = 'xtym://';
-    // window.location = 'zjmobile://platformapi/startapp';
+    window.location.href = "https://ssl.xt.cn?setitle=$!title&setype=$!type&setypeId=" + setypeId + "&seurl=$!url";
     var clickedAt = +new Date;
     setTimeout(function() {
-      !window.document.webkitHidden && setTimeout(function() {
-        if (+new Date - clickedAt < 2000) {
-          window.location.href = '$!appDownload';
-        }
-      }, 500);
-    }, 500)
+        !window.document.webkitHidden && setTimeout(function() {
+          if (+new Date - clickedAt < 2000) {
+            window.location.href = '$!appDownload';
+          }
+        }, 500);
+      }, 500)
+      // if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo" || isIosQQ || isAndroidQQ) {
+      //     document.write("<img src=" + "$env.getWebURL('resources/h5/images/download_default.png')" + " alt='APP下载' width='100%'/>");
+      //     return true;
+      // } else {
+
+    // }
   } else if (browser.versions.android) {
-    window.location.href = "xtym://**";
-    var clickedAt = +new Date;
-    setTimeout(function() {
-      !window.document.webkitHidden && setTimeout(function() {
-        if (+new Date - clickedAt < 2000) {
-          window.location.href = '$!appDownload';
-        }
-      }, 500);
-    }, 500)
+    if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo") {
+      document.write("<img src=" + "$env.getWebURL('resources/h5/images/download_default.png')" + " alt='APP下载' width='100%'/>");
+      return true;
+    } else {
+      window.location.href = "xtym://myapp/wakeapp?setitle=$!title&setype=$!type&setypeId=" + setypeId + "&seurl=$!url";
+      var clickedAt = +new Date;
+      setTimeout(function() {
+        !window.document.webkitHidden && setTimeout(function() {
+          if (+new Date - clickedAt < 2000) {
+            window.location.href = '$!appDownload';
+          }
+        }, 500);
+      }, 500)
+    }
+  }
+}
+//获取URL参数
+function getParameter(param) {
+  var query = window.location.search;
+  var iLen = param.length;
+  var iStart = query.indexOf(param);
+  if (iStart == -1)
+    return "";
+  iStart += iLen + 1;
+  var iEnd = query.indexOf("&", iStart);
+  if (iEnd == -1) {
+    return query.substring(iStart);
   }
 
-
+  return query.substring(iStart, iEnd);
 }
 var browser = {
   versions: function() {
