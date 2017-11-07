@@ -237,7 +237,7 @@ body {
 }
 
 .showClass p.img {
-    background: url(../images/loading.gif) no-repeat center center;
+    background: url(../cssimages/loading.gif) no-repeat center center;
     height: 3.1rem;
     line-height: 3.1rem;
     padding-left: 2rem;

@@ -1,4 +1,6 @@
 $(function() {
+  // var share = $("#share").val();
+  // autoapplink();
   if ("$!share" == 1) {
     // if (true) {
     var tophtml = $("<div class='top clearfix'><div class='f28'><div class='closebanner'></div><div class='text'><p class='f28'>新通移民</p><p class='f24'>上新通移民体验更多精彩内容</p></div></div><div><button class='f28' id='applink'>打开APP</button></div></div>")
@@ -73,6 +75,35 @@ $(function() {
 //   }, 500)
 
 // }
+function autoapplink() {
+  // var rootpath = $("#rootPath").val();
+  // var appDownload = $("#appDownload").val();
+  // var title = $("#title").val();
+  // var type = $("#type").val();
+  //  var url = $("#url").val();
+
+  var setypeId = getParameter("id");
+  var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
+  var isIos = browser.versions.ios,
+    isAndroid = browser.versions.android;
+  var isIosQQ = (isIos && / QQ/i.test(navigator.userAgent));
+  var isAndroidQQ = (isAndroid && /MQQBrowser/i.test(navigator.userAgent) && /QQ/i.test((navigator.userAgent).split('MQQBrowser')));
+  if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo" || isIosQQ || isAndroidQQ) {
+
+  } else {
+    window.location.href = "xtym://myapp/wakeapp?setitle=$!title&setype=$!type&setypeId=" + setypeId + "&seurl=$!url";
+    var clickedAt = +new Date;
+    setTimeout(function() {
+      !window.document.webkitHidden && setTimeout(function() {
+        if (+new Date - clickedAt < 2000) {
+          window.location.href = appDownload;
+        }
+      }, 500);
+    }, 500)
+  }
+
+}
+
 function applink() {
   var setypeId = getParameter("id");
   var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
@@ -82,21 +113,37 @@ function applink() {
   var isAndroidQQ = (isAndroid && /MQQBrowser/i.test(navigator.userAgent) && /QQ/i.test((navigator.userAgent).split('MQQBrowser')));
 
   if (browser.versions.ios) {
-    window.location.href = "https://ssl.xt.cn?setitle=$!title&setype=$!type&setypeId=" + setypeId + "&seurl=$!url";
-    var clickedAt = +new Date;
-    setTimeout(function() {
-        !window.document.webkitHidden && setTimeout(function() {
-          if (+new Date - clickedAt < 2000) {
-            window.location.href = '$!appDownload';
-          }
-        }, 500);
-      }, 500)
-      // if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo" || isIosQQ || isAndroidQQ) {
-      //     document.write("<img src=" + "$env.getWebURL('resources/h5/images/download_default.png')" + " alt='APP下载' width='100%'/>");
-      //     return true;
-      // } else {
+    var version;
+    var regStr_saf = /os [\d._]*/gi;
+    var verinfo = ua.match(regStr_saf);
+    version = (verinfo + "").replace(/[^0-9|_.]/ig, "").replace(/_/ig, ".");
+    var version_str = version + "";
+    if (version_str != "undefined" && version_str.length > 0) {
+      version = version.substring(0, 2);
+      if (parseInt(version) >= 9) {
+        window.location.href = "https://ssl.xt.cn/qct/appym/download.html?setitle=$!title&setype=$!type&setypeId=" + setypeId + "&seurl=$!url";
 
-    // }
+      } else {
+        if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo" || isIosQQ) {
+          document.write("<img src=" + "$env.getWebURL('resources/h5/images/download_default.png')" + " alt='APP下载' width='100%'/>");
+          return true;
+        } else {
+          window.location.href = "xtym://myapp/wakeapp?setitle=$!title&setype=$!type&setypeId=" + setypeId + "&seurl=$!url";
+          var clickedAt = +new Date;
+          setTimeout(function() {
+            !window.document.webkitHidden && setTimeout(function() {
+              if (+new Date - clickedAt < 2000) {
+                window.location.href = '$!appDownload';
+              }
+            }, 500);
+          }, 500)
+        }
+      }
+    }
+
+    // window.location.href = "https://ssl.xt.cn/qct/appym/download.html?setitle=$!title&setype=$!type&setypeId=" + setypeId + "&seurl=$!url";
+
+
   } else if (browser.versions.android) {
     if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo") {
       document.write("<img src=" + "$env.getWebURL('resources/h5/images/download_default.png')" + " alt='APP下载' width='100%'/>");
